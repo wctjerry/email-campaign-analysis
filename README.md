@@ -45,7 +45,7 @@ $$
 \frac{Number\ of\ users\ who\ clicked}{Number\ of\ users\ who\ received\ an\ email}
 $$
 
-### Machine Learning Model
+### Machine Learning model
 
 The dataset was split to a train and test dataset. We tested four models on the train set, and fine-tuned two of them (Decision Tree and Random Forest). The fine-tuning involves randomized grid search which finds a relatively good set of hyper-parameters for the model. These two models have achieved better click rate.
 
@@ -56,6 +56,10 @@ We saw Random Forest performs best and it doubles the click rate compared with t
 ![Confusion Matrix Random Forest](img/confusion_matrix_random_forest.png)
 
 From the Confusion Matrix, we found the Random Forest model predicts 6197 users (`5925+272`) who are likely to click, and 272 of them actually clicks, which leads to a click rate of 4.4%. Someone would probably argue that the model still missed 152 users who clicks, but achieve that 152 users would require emailing to another 13651 users who won't click, and very likely they are not the target users and will get annoyed by those inaccurate targeting. After all, users will definitely leave if a product always pushes unwanted or irrelavant information. As such, the current strategy of using model's prediction is a good balance between short-term business objective (user clicks) and long-term user experience (only promote to those who are interested).
+
+### Model deployment
+
+We could also deploy this Random Forest model to a server application. Details can refer to [this repo](https://github.com/wctjerry/predict-click-on-prod).
 
 ### Key takeaways for email campaign
 Even if we are not able to embed a Machine Learning model into the email campaign workflow, there are a few quick takeaways that would boost your click rate. These are also verified by the Partial Dependency Plots from the Machine Learning model.
